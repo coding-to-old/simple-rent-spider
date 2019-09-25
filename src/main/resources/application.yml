@@ -1,0 +1,25 @@
+server:
+ id: 1002
+ port: 8081
+ tomcat:
+  accept-count: 20 # Maximum queue length for incoming connection requests when all possible request processing threads are in use.
+  max-connections: 20 # Maximum number of connections that the server will accept and process at any given time.
+  max-threads: 20 # Maximum amount of worker threads.
+  min-spare-threads: 10  # Minimum amount of worker threads.
+
+
+
+
+mongodb:
+ uri: 192.168.165.171:31000,192.168.166.171:31000,192.168.167.171:31000
+ userName: spiderapp
+ userPwd: spiderapp
+ dbName: spider
+ connectDbName: spider
+
+redis:
+ ip: 127.0.0.1
+ port: 6379
+ pwd:
+ timeout: 2000
+ database: 1
