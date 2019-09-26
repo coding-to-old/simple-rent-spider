@@ -2,7 +2,7 @@ package cto.github.rent.douban.pipeline;
 
 import com.alibaba.fastjson.JSON;
 import cto.github.rent.dao.MongoDaoImpl;
-import cto.github.rent.douban.template.DoubanGroupContentList;
+import cto.github.rent.douban.template.DoubanArticleList;
 import cto.github.rent.util.DateFormUtils;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.PageModelPipeline;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,9 +37,9 @@ public class DoubanPipeline implements PageModelPipeline<Object> {
 
         List<String> data = new ArrayList<>(60);
 
-        if (o instanceof DoubanGroupContentList) {
+        if (o instanceof DoubanArticleList) {
             collectionName = collectionName.replace("keyName", "list");
-            final DoubanGroupContentList list = (DoubanGroupContentList)o;
+            final DoubanArticleList list = (DoubanArticleList)o;
 
             list.getDetails().stream().forEach( e -> {
                 final String jsonStr = JSON.toJSONString(o);

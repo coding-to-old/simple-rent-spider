@@ -1,5 +1,6 @@
 package cto.github.rent.douban.template;
 
+import cto.github.rent.enums.DoubanSite;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @Description 豆瓣组内容列表页面
+ * @Description 豆瓣组帖子列表页面
  * @Date 2019-09-25
  * @author ybbzbb
  */
@@ -28,7 +29,7 @@ import java.util.Optional;
 @Getter
 @Setter
 @Log4j
-public class DoubanGroupContentList implements AfterExtractor {
+public class DoubanArticleList implements AfterExtractor {
 
     private String site;
 
@@ -48,15 +49,15 @@ public class DoubanGroupContentList implements AfterExtractor {
 
         nodes.stream().forEach( e -> {
 
-            final String detailUrl = e.xpath("//td[@class=\"title\"]/a/@href").get();
+            final String articleUrl = e.xpath("//td[@class=\"title\"]/a/@href").get();
 
-            if (StringUtil.isBlank(detailUrl)) {
+            if (StringUtil.isBlank(articleUrl)) {
                 return;
             }
 
-            final String detailId = Optional.ofNullable(detailUrl).orElse("").replaceAll("[^\\d]","");
+            final String articleId = Optional.ofNullable(articleUrl).orElse("").replaceAll("[^\\d]","");
 
-            final String detailName = e.xpath("//td[@class=\"title\"]/a/@title").get();
+            final String articleName = e.xpath("//td[@class=\"title\"]/a/@title").get();
 
             final String author = e.xpath("//td[2]/a/text()").get();
 
@@ -68,11 +69,11 @@ public class DoubanGroupContentList implements AfterExtractor {
             final String lastCommentTime = e.xpath("//td[@class=\"time\"]/text()").get();
 
             final DoubanGroupDetail detail = DoubanGroupDetail.builder()
-                    .site("CN")
+                    .site(DoubanSite.CN.toString())
                     .sourceUrl(sourceUrl)
-                    .detailId(detailId)
-                    .detailUrl(detailUrl)
-                    .detailName(detailName)
+                    .articleId(articleId)
+                    .articleUrl(articleUrl)
+                    .articleName(articleName)
                     .author(author)
                     .authorId(authorId)
                     .commentCount(commentCount)
@@ -98,11 +99,11 @@ public class DoubanGroupContentList implements AfterExtractor {
 
         private String sourceUrl;
 
-        private String detailId;
+        private String articleId;
 
-        private String detailUrl;
+        private String articleUrl;
 
-        private String detailName;
+        private String articleName;
 
         private String author;
 

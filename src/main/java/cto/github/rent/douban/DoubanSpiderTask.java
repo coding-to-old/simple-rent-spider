@@ -1,8 +1,7 @@
 package cto.github.rent.douban;
 
-import cto.github.rent.config.SpringContext;
 import cto.github.rent.douban.pipeline.DoubanPipeline;
-import cto.github.rent.douban.template.DoubanGroupContentList;
+import cto.github.rent.douban.template.DoubanArticleList;
 import cto.github.rent.enums.Platform;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,9 +12,6 @@ import us.codecraft.webmagic.downloader.HttpClientDownloader;
 import us.codecraft.webmagic.model.OOSpider;
 import us.codecraft.webmagic.proxy.ProxyProvider;
 import us.codecraft.webmagic.scheduler.RedisPriorityScheduler;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @Date 2019-09-24
@@ -33,7 +29,7 @@ public class DoubanSpiderTask implements Runnable {
 
     private final static Site site = Site.me();
 
-    private final static Class [] TEMPLATES = new Class[]{DoubanGroupContentList.class};
+    private final static Class [] TEMPLATES = new Class[]{DoubanArticleList.class};
 
     private final static int THREAD_NUM = 10;
 

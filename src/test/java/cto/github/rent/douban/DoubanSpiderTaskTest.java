@@ -32,7 +32,8 @@ public class DoubanSpiderTaskTest extends RentSpiderApplicationTests {
     public void runTest(){
         RedisPriorityScheduler redis = new RedisPriorityScheduler(jedisPool);
 
-        redis.push(new Request("https://www.douban.com/group/609270/discussion?start=0"),site.toTask());
+//        redis.push(new Request("https://www.douban.com/group/609270/discussion?start=0"),site.toTask());
+        redis.push(new Request("https://www.douban.com/group/topic/153548695/"),site.toTask());
 
         doubanSpiderTask.run();
     }
