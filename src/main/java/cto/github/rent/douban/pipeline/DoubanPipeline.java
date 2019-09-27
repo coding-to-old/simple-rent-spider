@@ -2,6 +2,7 @@ package cto.github.rent.douban.pipeline;
 
 import com.alibaba.fastjson.JSON;
 import cto.github.rent.dao.MongoDaoImpl;
+import cto.github.rent.douban.template.DoubanArticleDetail;
 import cto.github.rent.douban.template.DoubanArticleList;
 import cto.github.rent.util.DateFormUtils;
 import lombok.extern.log4j.Log4j;
@@ -42,12 +43,15 @@ public class DoubanPipeline implements PageModelPipeline<Object> {
             final DoubanArticleList list = (DoubanArticleList)o;
 
             list.getDetails().stream().forEach( e -> {
-                final String jsonStr = JSON.toJSONString(o);
+                final String jsonStr = JSON.toJSONString(e);
                 data.add(jsonStr);
             });
+        }else if (o instanceof DoubanArticleDetail){
+            collectionName = collectionName.replace("keyName", "detail");
+            data.add(JSON.toJSONString(o));
         }
-//
-//        mongoDao.saveObject(dbName, collectionName, jsonStr);
+
+        mongoDao.saveManyObject(dbName, collectionName, data);
 
         log.info("save data:" + data);
     }
