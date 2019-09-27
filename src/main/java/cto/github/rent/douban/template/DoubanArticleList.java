@@ -1,6 +1,7 @@
 package cto.github.rent.douban.template;
 
 import cto.github.rent.enums.DoubanSite;
+import cto.github.rent.enums.DoubanSiteWeb;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -83,7 +84,7 @@ public class DoubanArticleList implements AfterExtractor {
 
             details.add(detail);
 
-//        page.addTargetRequest(new Request(detailUrl));
+//            page.addTargetRequest(new Request(DoubanSiteWeb.ARTICLE_DETAIL.getUrl(articleId)));
 
         });
 

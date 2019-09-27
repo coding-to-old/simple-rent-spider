@@ -1,6 +1,7 @@
 package cto.github.rent.douban;
 
 import cto.github.rent.RentSpiderApplicationTests;
+import cto.github.rent.enums.DoubanSiteWeb;
 import cto.github.rent.enums.Platform;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,8 +33,7 @@ public class DoubanSpiderTaskTest extends RentSpiderApplicationTests {
     public void runTest(){
         RedisPriorityScheduler redis = new RedisPriorityScheduler(jedisPool);
 
-//        redis.push(new Request("https://www.douban.com/group/609270/discussion?start=0"),site.toTask());
-        redis.push(new Request("https://www.douban.com/group/topic/153548695/"),site.toTask());
+        redis.push(new Request(DoubanSiteWeb.ARTICLE_LIST.getUrl("609270")),site.toTask());
 
         doubanSpiderTask.run();
     }

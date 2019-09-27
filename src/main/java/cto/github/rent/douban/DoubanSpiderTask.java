@@ -1,6 +1,7 @@
 package cto.github.rent.douban;
 
 import cto.github.rent.douban.pipeline.DoubanPipeline;
+import cto.github.rent.douban.template.DoubanArticleDetail;
 import cto.github.rent.douban.template.DoubanArticleList;
 import cto.github.rent.enums.Platform;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,8 @@ public class DoubanSpiderTask implements Runnable {
 
     private final static Site site = Site.me();
 
-    private final static Class [] TEMPLATES = new Class[]{DoubanArticleList.class};
+    private final static Class [] TEMPLATES = new Class[]{DoubanArticleList.class
+            , DoubanArticleDetail.class};
 
     private final static int THREAD_NUM = 10;
 

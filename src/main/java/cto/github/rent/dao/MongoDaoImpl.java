@@ -1,6 +1,6 @@
 package cto.github.rent.dao;
 
-import com.alibaba.fastjson.JSON;
+import com.mongodb.util.JSON;
 import com.google.common.collect.Lists;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;

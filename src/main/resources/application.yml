@@ -11,11 +11,11 @@ server:
 
 
 mongodb:
- uri: 192.168.165.171:31000,192.168.166.171:31000,192.168.167.171:31000
- userName: spiderapp
- userPwd: spiderapp
- dbName: spider
- connectDbName: spider
+  uri: ser03.dev.esr.local:27017
+  userName: admin
+  userPwd: Esr16888
+  dbName: spider
+  connectDbName: admin
 
 redis:
  ip: 127.0.0.1
