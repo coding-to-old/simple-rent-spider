@@ -34,7 +34,7 @@ public class DoubanPipeline implements PageModelPipeline<Object> {
     public void process(Object o, Task task) {
 
         log.info("amazon pipeline process:" + o.getClass().getName() + " task:" + task.getUUID() + "  ");
-        String collectionName = task.getUUID() + "keyName" + DateFormUtils.getNowDay();
+        String collectionName = task.getUUID() + "_keyName" + DateFormUtils.getNowDay();
 
         List<String> data = new ArrayList<>(60);
 
