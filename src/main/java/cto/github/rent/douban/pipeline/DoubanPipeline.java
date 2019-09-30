@@ -4,11 +4,11 @@ import com.alibaba.fastjson.JSON;
 import cto.github.rent.dao.MongoDaoImpl;
 import cto.github.rent.douban.template.DoubanArticleDetail;
 import cto.github.rent.douban.template.DoubanArticleList;
-import cto.github.rent.util.DateFormUtils;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import simple.reat.bast.date.DateFormUtils;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.PageModelPipeline;
 
