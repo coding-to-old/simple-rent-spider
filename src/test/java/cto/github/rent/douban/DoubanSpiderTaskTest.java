@@ -35,7 +35,7 @@ public class DoubanSpiderTaskTest extends RentSpiderApplicationTests {
 
         redis.push(new Request(DoubanSiteWeb.ARTICLE_LIST.getUrl("609270")),site.toTask());
 
-//        doubanSpiderTask.run();
+        doubanSpiderTask.run();
     }
 
 }

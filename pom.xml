@@ -13,8 +13,8 @@
 	<description>rent project spider</description>
 
 	<parent>
-		<groupId>simple-reat-bast</groupId>
-		<artifactId>bast</artifactId>
+		<groupId>cto.github.rent</groupId>
+		<artifactId>simple-rent-bast</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
